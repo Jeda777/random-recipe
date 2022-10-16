@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+:root {
+  --bg: #b9b7bd;
+  --bg-2: #e7d2cc;
+  --bg-3: #eeede7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg);
+  padding: 2rem 0;
+  flex-direction: column;
+  gap: 1rem;
+}
+h1 {
+  width: 90%;
+  text-align: center;
+  font-size: 28px;
+}
+
+#recipe-container {
+  width: 90%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  background: var(--bg-2);
+}
+#recipe-container.waiting {
+  height: 700px;
+  position: relative;
+}
+#recipe-container.waiting::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, var(--bg-3) 0%, var(--bg-2) 45%, var(--bg-2) 55%, var(--bg-3) 100%);
+  background-size: 200% 200%;
+  border-radius: 1rem;
+  animation: waitingAnimation 15s linear infinite;
+}
+@keyframes waitingAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+img {
+  width: 100%;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+#recipe-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+h2 {
+  font-size: 22px;
+}
+#tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+.tag {
+  background: var(--bg-3);
+  padding: 0.25rem 0.5rem;
+  border-radius: 1rem;
+  font-size: 12px;
+  font-weight: 300;
+}
+#additional-info {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  font-size: 14px;
+}
+#additional-info div {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+}
+ul {
+  margin-left: 1.5rem;
+  font-weight: 300;
+}
+ul li {
+  font-size: 14px;
+}
+#instructions {
+  font-size: 14px;
+}
+#instructions ul,
+ol {
+  margin-left: 1.5rem;
+}
+#next-btn {
+  background-color: var(--bg-2);
+  border: none;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 1rem;
+  padding: 1rem 0;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+#next-btn:hover {
+  opacity: 0.7;
+}
